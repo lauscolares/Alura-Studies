@@ -5,7 +5,7 @@
 }
 
 .colaborador .cabecalho {
-    background-color:  #F0F0F0;
+    background-color:  var(--title-cor-secundaria);
     border-radius: 10px 10px 0px 0px;
 }
 
