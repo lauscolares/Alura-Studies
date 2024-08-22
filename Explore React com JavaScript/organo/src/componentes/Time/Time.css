@@ -1,0 +1,31 @@
+.time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--time-cor-primaria);
+}
+
+.time h3 {
+    font-size: 32px;
+    position: relative;
+}
+
+.time h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 4px;
+    background-color: var(--title-cor-secundaria);
+}
+
+.time .colaboradores {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    gap: 16px;
+}

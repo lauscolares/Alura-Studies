@@ -7,9 +7,6 @@ import './Formulario.css';
 
 const Formulario = (props) => {
 
-    const times = ['Programação', 'Front-End', 'Data Science',
-        'Devops', 'UX e Design', 'Mobile', 'Inovação e Gestão']
-
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
@@ -18,11 +15,15 @@ const Formulario = (props) => {
     const aoSalvar = (evento) => {
         evento.preventDefault()
         props.aoColaboradorCadastrado({
-            nome: nome,
-            cargo: cargo,
-            imagem: imagem,
-            time: time
+            nome,
+            cargo,
+            imagem,
+            time
         })
+    setNome('')
+    setCargo('')
+    setImagem('')
+    setTime('')
     }
 
     return(
@@ -46,7 +47,7 @@ const Formulario = (props) => {
                         placeholder="Informe o endereço da imagem"
             />
             <ListaSuspensa
-                        itens={times} 
+                        itens={props.times} 
                         label="Time"
                         valor={time}
                         aoAlterado={valor=>setTime(valor)}
