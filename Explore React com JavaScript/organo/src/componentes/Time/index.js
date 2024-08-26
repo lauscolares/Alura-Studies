@@ -1,17 +1,33 @@
 import Colaborador from '../Colaborador'
 import './Time.css'
 
-const Time = (props) => {
+const Time = ({corPrimaria, corSecundaria, name, colaboradores, aoDeletar, aoFavoritar}) => {
+
+    const handleDelete = (colaboradorId, index) => {
+        aoDeletar(colaboradorId, index);
+    };
+
     return(
-        (props.colaboradores.length > 0) ? <section className="time" style={{
-            '--time-cor-primaria': props.corPrimaria,
-            '--title-cor-secundaria': props.corSecundaria}}>
-            <h3>{props.name}</h3>
+        (colaboradores.length > 0) ? <section className="time" style={{
+            '--time-cor-primaria': corPrimaria,
+            '--title-cor-secundaria': corSecundaria}}
+            >
+            <h3>{name}</h3>
             <div className="colaboradores">
-            {(props.colaboradores || []).map(colaborador => <Colaborador key={colaborador.nome}
-                                                                        nome={colaborador.nome}
-                                                                        cargo={colaborador.cargo}
-                                                                        imagem={colaborador.imagem} />)}
+            {colaboradores.map((colaborador, index) => { 
+                return (
+                        <Colaborador
+                            nome={colaborador.nome}
+                            cargo={colaborador.cargo}
+                            imagem={colaborador.imagem}
+                            key={colaborador.nome}
+                            corDeFundo={corPrimaria}
+                            aoDeletar={() => handleDelete(colaborador.id, index)}
+                            colaborador={colaborador}
+                            aoFavoritar={aoFavoritar}
+                        />
+                    )}
+                )}
             </div>
         </section>
         : ''

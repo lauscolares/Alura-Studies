@@ -1,14 +1,36 @@
 import './Colaborador.css'
+import { IoIosCloseCircle } from "react-icons/io";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
-const Colaborador = ({nome, imagem, cargo}) => {
+const Colaborador = ({aoDeletar, colaborador, aoFavoritar}) => {
+    function favoritar() {
+        aoFavoritar(colaborador.id)
+    }
+
+const propsFavorito = {
+    size: 25,
+    onClick: favoritar
+}
+
     return (
         <div className='colaborador'>
+            <IoIosCloseCircle 
+                size={25} 
+                className="deletar" 
+                onClick={() => aoDeletar(colaborador.id)}
+            />
             <div className='cabecalho'>
-                <img src={imagem} alt={nome}></img>
+                <img src={colaborador.imagem} alt={colaborador.nome}></img>
             </div>
             <div className='rodape'>
-                <h4>{nome}</h4>
-                <h5>{cargo}</h5>
+                <h4>{colaborador.nome}</h4>
+                <h5>{colaborador.cargo}</h5>
+                <div className='favoritar'>
+                    {colaborador.favorito 
+                        ? <MdFavorite {...propsFavorito} color='#ff0000'/> 
+                        : <MdFavoriteBorder {...propsFavorito}/>
+                    }
+                </div>
             </div>
         </div>
     )
