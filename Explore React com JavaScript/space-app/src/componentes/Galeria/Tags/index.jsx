@@ -1,17 +1,17 @@
 import styled from 'styled-components'
 import tags from './tags.json'
 
-const TagContainer = styled.section`
-    display: flex;
-    align-items: center;
-    gap: 64px;
-    margin-top: 56px;
-`
-
 const TagTitulo = styled.h3`
     color: #D9D9D9;
     font-size: 24px;
     margin: 0;
+`
+
+const TagContainer = styled.section`
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin:  56px 0 40px 0;
 `
 
 const ListaTag = styled.div`
@@ -40,13 +40,16 @@ const Tags = () => {
     return (
         <TagContainer>
             <TagTitulo>Busque por tags:</TagTitulo>
+            <ListaTag>
             {tags.map(tag =>
-                <ListaTag>
-                    <Tag key={tag.id}>
+                    <Tag 
+                        key={tag.id}
+                        onClick={() => setTag(tag.tag)}    
+                    >
                         {tag.titulo}
                     </Tag>
-                </ListaTag>
             )}
+            </ListaTag>
         </TagContainer>
     )
 }
