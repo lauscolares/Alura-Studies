@@ -1,0 +1,29 @@
+.input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-div input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.input-div input:focus {
+    outline: none;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.input-div input::placeholder {
+    color: #999;
+    font-size: 12px;
+}
+
+.input-div label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}

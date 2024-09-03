@@ -1,0 +1,13 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-div {
+    margin: 30px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 16px 32px;
+    width: 50%;
+}
